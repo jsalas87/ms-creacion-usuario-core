@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ms-creacion-usuario-core
+  namespace: user-dev
+spec:
+  selector:
+    app: ms-creacion-usuario-core
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080

@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "2ba197a0-0b55-4671-8151-709778afbd90",
+		"name": "cr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5450107"
+	},
+	"item": [
+		{
+			"name": "crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"Juan Rodriguez\",\r\n    \"email\": \"juan5@rodriguez.org\",\r\n    \"password\": \"hunter2\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"1234567\",\r\n            \"citycode\": \"1\",\r\n            \"countrycode\": \"57\"\r\n        }\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1.0/cr/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1.0",
+						"cr",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "user-email",
+						"value": "juan5@rodriguez.org",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQHJvZHJpZ3Vlei5vcmciLCJpYXQiOjE3MjcyOTc5NTAsImV4cCI6MTcyNzM4NDM1MH0.Yp5NTSWrjQcs8YGMQrHK3mrk0vpuDLi5byCLzewpFok",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1.0/cr/user/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1.0",
+						"cr",
+						"user",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
