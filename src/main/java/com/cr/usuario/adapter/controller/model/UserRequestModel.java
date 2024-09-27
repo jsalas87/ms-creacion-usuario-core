@@ -1,6 +1,7 @@
 package com.cr.usuario.adapter.controller.model;
 
 import com.cr.usuario.domain.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Value;
 
@@ -24,6 +25,7 @@ public class UserRequestModel {
             regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
             message = "El email debe ser válido"
     )
+    @Schema(example = "example@example.com")
     String email;
     @NotNull @NotBlank
     String password;
