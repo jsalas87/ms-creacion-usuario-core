@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -53,7 +52,15 @@ public class CreateUserControllerAdapter {
     }
 
     @GetMapping("/get")
-    public UserResponseModel getUser(@RequestHeader("user-email") String email) {
-        return UserResponseModel.of(findUserQuery.execute(email));
+    public ResponseRest<UserResponseModel> getUser(
+            @RequestHeader("user-email") String email,
+            HttpServletRequest httpServletRequest
+    ) {
+        var user = findUserQuery.execute(email);
+        return processor.processRequest(
+                httpServletRequest,
+                tracer,
+                () -> UserResponseModel.of(user)
+        );
     }
 }

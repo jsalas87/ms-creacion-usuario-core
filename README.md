@@ -43,6 +43,9 @@ La version que java que se va a utilizar es la 11.0.5 basada en el OpenJDK.
 Esta la pueden descargar [aqui](https://github.com/AdoptOpenJDK/openjdk11-upstream-binaries/releases/tag/jdk-11.0.5%2B10).
 También se puede instalar usando [SdkMan](https://sdkman.io/), version 11.0.5-open.
 
+## Springboot Version
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7.1-brightgreen)
+
 ## Base de Datos
 Se usa Base De datos en Memoria H2. Sin embargo, tambien se probó el funcionamiento sin dificultad en una Base de Datos
 PostgreSQL
@@ -95,7 +98,7 @@ curl --location 'http://localhost:8080/api/v1.0/cr/user/get' \
 
 ### Cobertura
 Se puede hacer analisis de la cobertura con jacocoTest. Para ello, ejecutar los tests y luego desde el panel de grandle ir a carpeta verification y ejecutar jacocoTestReport.
-luego, reporte puede ser encontrado en build/reports/jacoco/test/html/index.html
+luego, el reporte puede ser encontrado dentro del proyecto en build/reports/jacoco/test/html/index.html
 
 # Información Adicional
 Recordar que no se requiere Base de Datos en la Máquina Local ya que se utiliza H2. No obstante, Dentro de la carpeta 

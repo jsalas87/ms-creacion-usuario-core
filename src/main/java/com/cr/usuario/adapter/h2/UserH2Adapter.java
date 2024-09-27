@@ -3,10 +3,7 @@ package com.cr.usuario.adapter.h2;
 import com.cr.usuario.application.port.out.UserRepository;
 import com.cr.usuario.domain.User;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Hibernate;
 import org.springframework.stereotype.Component;
-
-import java.util.UUID;
 
 
 @Slf4j
@@ -26,6 +23,6 @@ public class UserH2Adapter implements UserRepository {
 
     @Override
     public User findUserByEmail(String email) {
-       return userH2Repository.findByEmail(email);
+       return  userH2Repository.findByEmail(email);
     }
 }

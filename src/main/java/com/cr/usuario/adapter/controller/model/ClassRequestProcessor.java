@@ -3,7 +3,6 @@ package com.cr.usuario.adapter.controller.model;
 import brave.Span;
 import brave.Tracer;
 import brave.propagation.TraceContext;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;

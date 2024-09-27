@@ -2,7 +2,7 @@ package com.cr.usuario.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -18,16 +18,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
-@Data
-@Builder
+@Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name="\"user\"")
 public class User {
+
+    private static final String VOID = "";
+    private static final String ASTERISK = "*";
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -46,4 +51,14 @@ public class User {
     private String token;
     @Column(name="is_active")
     private Boolean isActive;
+    @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
+    @Column(name="last_login")
+    private Timestamp lastLogin;
+
+    public String obfuscatePassword() {
+        if (Optional.ofNullable(password).isEmpty() || password.isEmpty()) {
+            return VOID;
+        }
+        return  ASTERISK.repeat(password.length());
+    }
 }

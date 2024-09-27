@@ -21,6 +21,8 @@ public class UserResponseModel {
     List<PhoneModel> phones;
     Timestamp created;
     Timestamp modified;
+    @JsonProperty("last_login")
+    Timestamp lastLogin;
     String token;
     @JsonProperty("isactive")
     Boolean isActive;
@@ -30,7 +32,7 @@ public class UserResponseModel {
                 .id(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
-                .password(user.getPassword())
+                .password(user.obfuscatePassword())
                 .phones(
                         user.getPhones().stream()
                                 .map(PhoneModel::of)
@@ -38,6 +40,7 @@ public class UserResponseModel {
                 )
                 .created(user.getCreated())
                 .modified(user.getModified())
+                .lastLogin(user.getLastLogin())
                 .token(user.getToken())
                 .isActive(user.getIsActive())
                 .build();

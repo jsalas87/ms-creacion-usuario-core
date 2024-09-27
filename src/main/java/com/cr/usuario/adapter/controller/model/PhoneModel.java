@@ -14,10 +14,12 @@ public class PhoneModel {
 
     @NotNull @NotBlank
     String number;
-    @NotNull @NotBlank
+    @NotNull(message = "citycode no puede ser nulo")
+    @NotBlank(message = "citycode no puede ser vacío")
     @JsonProperty("citycode")
     String cityCode;
-    @NotNull @NotBlank
+    @NotNull(message = "countrycode no puede ser nulo")
+    @NotBlank(message = "countrycode no puede ser vacío")
     @JsonProperty("countrycode")
     String countryCode;
 

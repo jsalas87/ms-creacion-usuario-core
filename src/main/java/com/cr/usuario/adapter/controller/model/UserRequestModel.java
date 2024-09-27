@@ -4,6 +4,7 @@ import com.cr.usuario.domain.User;
 import lombok.Builder;
 import lombok.Value;
 
+import javax.validation.Valid;
 import javax.validation.ValidationException;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -26,6 +27,7 @@ public class UserRequestModel {
     String email;
     @NotNull @NotBlank
     String password;
+    @Valid
     List<PhoneModel> phones;
 
     public void validate(String regex, String msg) {

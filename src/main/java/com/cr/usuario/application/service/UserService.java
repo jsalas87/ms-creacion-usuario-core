@@ -36,6 +36,7 @@ public class UserService {
         var now = new Timestamp(System.currentTimeMillis());
         user.setCreated(now);
         user.setModified(now);
+        user.setLastLogin(now);
         user.setIsActive(true);
         if (Optional.ofNullable(user.getPhones()).isPresent() && !user.getPhones().isEmpty()) {
             user.getPhones().forEach(phone -> phone.setUser(user));
